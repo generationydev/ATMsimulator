@@ -6,8 +6,8 @@
     },
     "labels": {
         "0": "\u2022\u0020DEPOSIT",
-        "1": "\u2022\u0020WITHDRAWAL",
-        "2": "\u2022\u0020PAY BILLS",
+        "1": "WITHDRAWAL\u0020\u2022",
+        "2": "PAY BILLS\u0020\u2022",
         "3": "\u2022\u0020AUTHENTICATION",
         "4": "\u2022\u0020TRANSFER",
         "5": "WELCOME TO WHATEVER BANK"

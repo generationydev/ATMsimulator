@@ -9,8 +9,9 @@ from components.theme import ComponentColours
 
 
 class AtmApplication:
-    def __init__(self, screen=False):
+    def __init__(self, bank_name, screen=False):
         self. window = tk.Tk()
+        self.bank_name = bank_name
         self.screen = screen
 
     def main(self):
@@ -61,9 +62,7 @@ class AtmApplication:
             self.window,
             foreground=ComponentColours.yellow(),
             bg=ComponentColours.blue(),
-            text=self.getManifestationItem(
-                key1="labels", key2="5"
-            ),
+            text=f"WELCOME TO {self.bank_name.upper()}BANK",
             font=("Arial-Black 25")
         )
 
@@ -109,13 +108,23 @@ class AtmApplication:
 
         welcome_message.pack(side="bottom")
         screen_deposit.place(relx=0.10, rely=0.2, anchor="w")
-        screen_deposit.bind("<Button-1>", lambda event: print("deposit"))
+        screen_deposit.bind(
+            "<Button-1>", lambda event: self.navigate('deposit')
+        )
         screen_transfer.place(relx=0.10, rely=0.4, anchor="w")
         screen_transfer.bind("<Button-1>", lambda event: print("Transfer"))
         screen_withdrawal.place(relx=0.65, rely=0.2, anchor="w")
         screen_withdrawal.bind("<Button-1>", lambda event: print("withdrawal"))
-        screen_paybills.place(relx=0.65, rely=0.4, anchor="w")
+        screen_paybills.place(relx=0.70, rely=0.4, anchor="w")
         screen_paybills.bind("<Button-1>", lambda event: print("paybills"))
+
+    def navigate(self, className):
+        if className is None:
+            return "Class Name Invalid"
+        if className == "deposit":
+            self.onExit
+            from pages.deposit import DepositPage
+            DepositPage(screen=self.screen)
 
     def bindWindowConfiguration(self):
         self.window.title(self.getApplicationName())
@@ -126,7 +135,10 @@ class AtmApplication:
         self.window.attributes("-fullscreen", self.screen)
         self.window.mainloop()
 
+    def onExit(self):
+        self.window.destroy()
+
 
 if __name__ == "__main__":
-    application = AtmApplication(screen=False)
+    application = AtmApplication(bank_name="may", screen=False)
     application.main()
