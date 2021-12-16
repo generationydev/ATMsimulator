@@ -4,10 +4,11 @@ import json
 
 
 class AtmApplication:
-    def __init__(self) -> None: pass
-    window = tk.Tk()
+    def __init__(self):
+        self. window = tk.Tk()
 
-    def getAuthentication(self): pass
+    def getAuthentication(self) -> None: pass
+    def bindKeyboardEvent(self) -> None: pass
 
     def getApplicationName(self):
         application_file = open("manifest.json")
@@ -19,8 +20,14 @@ class AtmApplication:
         dummy_data = json.load(dummy_user)
         return dummy_data[key]
 
-    if __name__ == "__main__":
-        window.title(getApplicationName(self=None))
-        window.iconbitmap("assets/images/atm.ico")
-        window.geometry("1000x500")
-        window.mainloop()
+    def bindWindowConfiguration(self):
+        self.window.title(self.getApplicationName())
+        self.window.iconbitmap("assets/images/atm.ico")
+        self.window.configure(bg="blue")
+        self.window.geometry("1000x500")
+        self.window.mainloop()
+
+
+if __name__ == "__main__":
+    application = AtmApplication()
+    application.bindWindowConfiguration()
