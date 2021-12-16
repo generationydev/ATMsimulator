@@ -57,18 +57,65 @@ class AtmApplication:
         return dummy_data[key]
 
     def renderUserComponents(self):
+        welcome_message = Label(
+            self.window,
+            foreground=ComponentColours.yellow(),
+            bg=ComponentColours.blue(),
+            text=self.getManifestationItem(
+                key1="labels", key2="5"
+            ),
+            font=("Arial-Black 25")
+        )
+
         screen_deposit = Label(
             self.window,
-            foreground="white",
+            foreground=ComponentColours.yellow(),
             bg=ComponentColours.blue(),
             text=self.getManifestationItem(
                 key1="labels", key2="0"
             ),
-            font=("Aerial-Bold 20")
+            font=("Arial-Black 25")
         )
 
-        screen_deposit.place(relx=0.2, rely=0.2, anchor="ne")
+        screen_transfer = Label(
+            self.window,
+            foreground=ComponentColours.yellow(),
+            bg=ComponentColours.blue(),
+            text=self.getManifestationItem(
+                key1="labels", key2="4"
+            ),
+            font=("Arial-Black 25")
+        )
+
+        screen_withdrawal = Label(
+            self.window,
+            foreground=ComponentColours.yellow(),
+            bg=ComponentColours.blue(),
+            text=self.getManifestationItem(
+                key1="labels", key2="1"
+            ),
+            font=("Arial-Black 25")
+        )
+
+        screen_paybills = Label(
+            self.window,
+            foreground=ComponentColours.yellow(),
+            bg=ComponentColours.blue(),
+            text=self.getManifestationItem(
+                key1="labels", key2="2"
+            ),
+            font=("Arial-Black 25")
+        )
+
+        welcome_message.pack(side="bottom")
+        screen_deposit.place(relx=0.10, rely=0.2, anchor="w")
         screen_deposit.bind("<Button-1>", lambda event: print("deposit"))
+        screen_transfer.place(relx=0.10, rely=0.4, anchor="w")
+        screen_transfer.bind("<Button-1>", lambda event: print("Transfer"))
+        screen_withdrawal.place(relx=0.65, rely=0.2, anchor="w")
+        screen_withdrawal.bind("<Button-1>", lambda event: print("withdrawal"))
+        screen_paybills.place(relx=0.65, rely=0.4, anchor="w")
+        screen_paybills.bind("<Button-1>", lambda event: print("paybills"))
 
     def bindWindowConfiguration(self):
         self.window.title(self.getApplicationName())
