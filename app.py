@@ -4,8 +4,10 @@ import json
 
 
 class AtmApplication:
-    def __init__(self):
+    def __init__(self, screen=False):
+        # Fullscreen Disable [false] at default
         self. window = tk.Tk()
+        self.screen = screen
 
     def getAuthentication(self) -> None: pass
     def bindKeyboardEvent(self) -> None: pass
@@ -25,9 +27,11 @@ class AtmApplication:
         self.window.iconbitmap("assets/images/atm.ico")
         self.window.configure(bg="blue")
         self.window.geometry("1000x500")
+        self.window.state('zoomed')
+        self.window.attributes("-fullscreen", False)
         self.window.mainloop()
 
 
 if __name__ == "__main__":
-    application = AtmApplication()
+    application = AtmApplication(screen=False)
     application.bindWindowConfiguration()
