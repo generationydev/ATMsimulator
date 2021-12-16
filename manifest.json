@@ -1,7 +1,22 @@
 {
     "application": {
-        "name" : "ATM Simulator",
-        "version" : "1.0",
-        "author" : "John Melody Me"
+        "name": "ATM Simulator",
+        "version": "1.0",
+        "author": "John Melody Me"
+    },
+    "labels": {
+        "0": "DEPOSIT",
+        "1": "WITHDRAWAL",
+        "2": "PAY BILLS",
+        "3": "AUTHENTICATION",
+        "4": "TRANSFER"
+    },
+    "ui": {
+        "colours": {
+            "blue": "#00008b",
+            "yellow": "#ffe300",
+            "green": "#00ff41",
+            "red": "#ff0000"
+        }
     }
 }
