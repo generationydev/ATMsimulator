@@ -1,0 +1,5 @@
+{ 
+    "name": "John Melody",
+    "password": "1234567890", 
+    "isAuthenticated": false
+}
